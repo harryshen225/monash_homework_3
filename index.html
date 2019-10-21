@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Password Generator</title>
+    <script src="assets/index.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
-    
+    <div class="page">
+        <div class="container">
+            <header>
+                <nav>
+                    <h1>Password Generator</h1>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content">
+                    <div class="content_title">
+                        <h2>Generate a Password</h2>
+                    </div>
+                    <article>
+                        <div class="password_display">
+                            <p id="pwd_placeholder">Your Secure Password</p>
+                            <p id="password">Password</p>
+                        </div>
+                    </article>
+
+                    <article>
+                        <div class="button_group">
+                            <button id="generate_pwd" type="button" onclick="#">Generate Password</button>
+                            <button id="copy2clipboard" type="button" onclick="#">Copy to Clipboard</button>
+                        </div>
+                    </article>
+                </div>
+
+                <aside>
+                    <div class="critiera-container">
+                        <div class="critiera-whitespace">
+                            <div class="critiera-content">
+                                <div class="criteria-title">
+                                    <h2>Please Select One of the Following Passowrd Criteria:</h2>
+                                </div>
+
+                                <div class="criteria-options">
+                                    <p>
+                                        <input type="radio" name="criteria">Length (must be between 8 and 128
+                                        characters)<br>
+                                        <input type="radio" name="criteria">Character type:
+                                        <ul>
+                                            <li>Special characters (see examples)</li>
+                                            <li>Numeric characters</li>
+                                            <li>Lowercase characters</li>
+                                            <li>Uppercase characters</li>
+                                        </ul>
+                                        <div class="button-group">
+                                            <input id="confirm" type="submit" value="Confirm">
+                                            <button id="cancel" type="button">Cancel</button>
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+            </main>
+        </div>
+    </div>
+
 </body>
+
 </html>
