@@ -117,6 +117,12 @@ button{
     margin:auto; */
     line-height: 30px;
 }
+
+#warning{
+    color: #af0808;
+    display: none;
+}
+
 .button-group{
     display: flex;
     flex-direction: row;

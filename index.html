@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Password Generator</title>
-    <script src="assets/index.js"></script>
+    
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -46,12 +46,14 @@
                                 <div class="criteria-title">
                                     <h2>Please Select One of the Following Passowrd Criteria:</h2>
                                 </div>
-
+                                <div id="warning">
+                                    <p>"Criteria Selection is Mandatory."</p>
+                                </div>
                                 <div class="criteria-options">
                                     <p>
-                                        <input type="radio" name="criteria">Length (must be between 8 and 128
+                                        <input type="radio" id="length" name="criteria" value="length">Length (must be between 8 and 128
                                         characters)<br>
-                                        <input type="radio" name="criteria">Character type:
+                                        <input type="radio" id="character_type" name="criteria" value="character">Character type:
                                         <ul>
                                             <li>Special characters (see examples)</li>
                                             <li>Numeric characters</li>
@@ -59,7 +61,7 @@
                                             <li>Uppercase characters</li>
                                         </ul>
                                         <div class="button-group">
-                                            <input id="confirm" type="submit" value="Confirm">
+                                            <button id="confirm" type="submit">Confirm</button>
                                             <button id="cancel" type="button">Cancel</button>
                                         </div>
                                     </p>
@@ -72,7 +74,7 @@
             </main>
         </div>
     </div>
-
+    <script src="assets/criteria.js"></script>
 </body>
 
 </html>
