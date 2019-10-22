@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Password Generator</title>
-    
+
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -51,16 +51,20 @@
                                 </div>
                                 <div class="criteria-options">
                                     <p>
-                                        <input type="radio" id="length" name="criteria" value="length">Length (must be between 8 and 128
-                                        characters)<br>
-                                        <input type="radio" id="character_type" name="criteria" value="character">Character type:
+                                        <input type="radio" id="length" name="criteria" value="length">Length<br>
+                                        <ul>
+                                            <li>Length must be between 8 and 128
+                                                characters</li>
+                                        </ul>
+                                        <input type="radio" id="character_type" name="criteria"
+                                            value="character">Character type:
                                         <ul>
                                             <li>Special characters (see examples)</li>
                                             <li>Numeric characters</li>
                                             <li>Lowercase characters</li>
                                             <li>Uppercase characters</li>
                                         </ul>
-                                        <div class="button-group_critieria">
+                                        <div class="button-group-critieria">
                                             <button id="confirm" type="submit">Confirm</button>
                                             <button id="cancel" type="button">Cancel</button>
                                         </div>

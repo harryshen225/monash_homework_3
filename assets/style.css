@@ -29,7 +29,7 @@ h1 {
 
 .content {
     background-color: #ffffff;
-    width: 85%;
+    /* width: 85%; */
     margin: auto;
     padding: 30px 50px 50px 50px;
     /* border: 1px solid #f9fbfd; */
@@ -47,7 +47,7 @@ h1 {
     margin-bottom: 20px;
     border: 2px dashed #d0d5db;
     width: 100%;
-    height: 100px;
+    min-height: 100px;
 }
 
 #password{
@@ -62,7 +62,7 @@ h1 {
     justify-content: space-around;
     border-top: 2px solid #c0c7cf;
     padding-top: 20px;
-
+    flex-wrap: wrap;
 }
 
 button{
@@ -119,9 +119,14 @@ button{
 } */
 
 .criteria-options {
-    /* width: 57%;
-    margin:auto; */
+    font-weight: bold;
+    font-size: 18px;
     line-height: 30px;
+}
+
+li {
+    font-weight: 1;
+    font-size: 16px;
 }
 
 #warning{
@@ -129,7 +134,7 @@ button{
     display: none;
 }
 
-.button-group_critieria{
+.button-group-critieria{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
