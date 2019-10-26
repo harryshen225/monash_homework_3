@@ -44,31 +44,31 @@
                         <div class="critiera-whitespace">
                             <div class="critiera-content">
                                 <div class="criteria-title">
-                                    <h2>Please Select One of the Following Passowrd Criteria:</h2>
+                                    <h2>Please Define the following Passowrd Criteria:</h2>
                                 </div>
                                 <div id="warning">
                                     <p>"Criteria Selection is Mandatory."</p>
                                 </div>
                                 <div class="criteria-options">
-                                    <p>
-                                        <input type="radio" id="length" name="criteria" value="length">Length<br>
-                                        <ul>
-                                            <li>Length must be between 8 and 128
-                                                characters</li>
-                                        </ul>
-                                        <input type="radio" id="character_type" name="criteria"
-                                            value="character">Character type:
-                                        <ul>
-                                            <li>Special characters (see examples)</li>
-                                            <li>Numeric characters</li>
-                                            <li>Lowercase characters</li>
-                                            <li>Uppercase characters</li>
-                                        </ul>
+                                    <form id=form>
+                                        <h3>Length</h3>
+                                        <input type="text" id="length">
+                                        <p id="lengthWarning"></p>
+
+
+                                        <h3>Character</h3>
+                                        <div id="criteriaSelection">
+                                            <input type="checkbox" id="specChar">Special characters <a href="https://www.owasp.org/index.php/Password_special_characters">(see examples)</a><br>
+                                            <input type="checkbox" id="numChar">Numeric characters<br>
+                                            <input type="checkbox" id="lowerCase">Lowercase characters<br>
+                                            <input type="checkbox" id="upperCase">Uppercase characters<br>
+                                        </div>
+                                    </form>
                                         <div class="button-group-critieria">
-                                            <button id="confirm" type="submit">Confirm</button>
+                                            <button id="confirm" type="submit">Run</button>
                                             <button id="cancel" type="button">Cancel</button>
                                         </div>
-                                    </p>
+                                    
                                 </div>
                             </div>
                         </div>

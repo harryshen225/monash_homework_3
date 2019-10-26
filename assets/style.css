@@ -166,5 +166,16 @@ li {
 }
 
 
+h3 {
+    text-decoration: underline;
+    color: rgb(74, 84, 221);
+}
+
+#length{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
 
 
