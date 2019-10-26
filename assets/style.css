@@ -160,9 +160,12 @@ li {
 #confirm {
     background-color: rgb(74, 84, 221);
 }
+#confirm:disabled {
+    background-color: #c0c7cf;
+}
 
 #cancel {
-    background: #c0c7cf;
+    background: red;
 }
 
 
@@ -177,5 +180,6 @@ h3 {
     margin: 8px 0;
     box-sizing: border-box;
 }
+
 
 

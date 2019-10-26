@@ -18,6 +18,10 @@ var password = document.getElementById("password");
 var generated_pwd = '';
 var form = document.getElementById("form");
 var lengthWarning = document.getElementById("lengthWarning");
+var btnConfirm = document.getElementById("confirm");
+btnConfirm.disabled = true;
+var criteriaStatus = [false,false];
+
 
 var criteriaSelection = document.getElementById("criteriaSelection");
 
@@ -27,13 +31,50 @@ selectedCriteria.length.addEventListener("change",function(){
     if(parseInt(selectedCriteria.length.value) >= 8 && parseInt(selectedCriteria.length.value) <= 128){
         lengthWarning.setAttribute("style","display:none")
         selectedCriteria_value.length = parseInt(selectedCriteria.length.value);
+        criteriaStatus[0]=true;
+        checkCriteria();
     }
     else{
         lengthWarning.setAttribute("style","display:block;");
         lengthWarning.setAttribute("style","color:red;");
         lengthWarning.textContent = "length needs to be numeric value between 8 and 128";
+        criteriaStatus[0]=false;
+        checkCriteria();
+        
     }
 })
+
+criteriaSelection.addEventListener("change",function(){
+    selectedCriteria_value.specChar = selectedCriteria.specChar.checked;
+    selectedCriteria_value.numChar = selectedCriteria.numChar.checked;
+    selectedCriteria_value.lowerCase = selectedCriteria.lowerCase.checked;
+    selectedCriteria_value.upperCase = selectedCriteria.upperCase.checked;
+    var checkboxWarning = document.getElementById("cbWarning");
+
+    if(selectedCriteria_value.specChar+selectedCriteria_value.numChar+selectedCriteria_value.lowerCase+selectedCriteria_value.upperCase===0){
+        
+        checkboxWarning.setAttribute("style","display:block;");
+        checkboxWarning.setAttribute("style","color:red;");
+        checkboxWarning.textContent = "At least one of the following options needs to be checked!!";
+        criteriaStatus[1]=false;
+        checkCriteria();
+    }
+    else{
+        criteriaStatus[1]=true;
+        checkCriteria();
+        checkboxWarning.setAttribute("style","display:none;");
+    }
+})
+
+function checkCriteria(){
+    if (criteriaStatus[0]+criteriaStatus[1] ===2){
+        btnConfirm.disabled=false;
+    }
+    else{
+        btnConfirm.disabled=true;
+    }
+    console.log(criteriaStatus);
+}
 
 
 
@@ -49,41 +90,42 @@ btnCloseCriteria.onclick =function cancelCriteria(){
 //     }
 // }
 
-var btnConfirm = document.getElementById("confirm");
-var radioLength = document.getElementById("length");
-var radioCharacterType = document.getElementById("character_type");
-// console.log(radioLength,radioCharacterType);
 
 btnConfirm.onclick = function confirmSettings(){
     // event.preventDefault();
-    selectedCriteria_value.specChar = selectedCriteria.specChar.checked;
-    selectedCriteria_value.numChar = selectedCriteria.numChar.checked;
-    selectedCriteria_value.lowerCase = selectedCriteria.lowerCase.checked;
-    selectedCriteria_value.upperCase = selectedCriteria.upperCase.checked;
-    var validation_flag = true;
+    // selectedCriteria_value.specChar = selectedCriteria.specChar.checked;
+    // selectedCriteria_value.numChar = selectedCriteria.numChar.checked;
+    // selectedCriteria_value.lowerCase = selectedCriteria.lowerCase.checked;
+    // selectedCriteria_value.upperCase = selectedCriteria.upperCase.checked;
+    // var validation_flag = true;
 
-    if(selectedCriteria_value.specChar+selectedCriteria_value.numChar+selectedCriteria_value.lowerCase+selectedCriteria_value.upperCase===0){
-        var checkboxWarning = document.createElement("p");
-        checkboxWarning.setAttribute("style","display:block;");
-        checkboxWarning.setAttribute("style","color:red;");
-        checkboxWarning.textContent = "At least one of the following options needs to be checked!!";
-        criteriaSelection.prepend(checkboxWarning);
-        validation_flag = false;
-    }
-    console.log(selectedCriteria_value.length);
-    if(!selectedCriteria_value.length){
-        lengthWarning.setAttribute("style","display:block;");
-        lengthWarning.setAttribute("style","color:red;");
-        lengthWarning.textContent = "length can't be empty";
-        validation_flag = false;
-    }
-    if(validation_flag){
-        criteriaWindow.style.display = "none";
+    // if(selectedCriteria_value.specChar+selectedCriteria_value.numChar+selectedCriteria_value.lowerCase+selectedCriteria_value.upperCase===0){
+    //     var checkboxWarning = document.createElement("p");
+    //     checkboxWarning.setAttribute("style","display:block;");
+    //     checkboxWarning.setAttribute("style","color:red;");
+    //     checkboxWarning.textContent = "At least one of the following options needs to be checked!!";
+    //     criteriaSelection.prepend(checkboxWarning);
+    //     validation_flag = false;
+    // }
+    // console.log(selectedCriteria_value.length);
+    // if(!selectedCriteria_value.length){
+    //     lengthWarning.setAttribute("style","display:block;");
+    //     lengthWarning.setAttribute("style","color:red;");
+    //     lengthWarning.textContent = "length can't be empty";
+    //     validation_flag = false;
+    // }
+    // if(validation_flag){
+    //     criteriaWindow.style.display = "none";
+    //     var generated_pwd = generatePassword(selectedCriteria_value);;
+    //     password.innerHTML = generated_pwd;
+    //     password.style.textAlign = "left";
+    //     password.style.fontSize = "20px";
+    // }
+    criteriaWindow.style.display = "none";
         var generated_pwd = generatePassword(selectedCriteria_value);;
         password.innerHTML = generated_pwd;
         password.style.textAlign = "left";
         password.style.fontSize = "20px";
-    }
 }
 
 function generatePassword(criteria){
